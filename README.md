@@ -29,3 +29,17 @@
 ### 컨트롤러
 
 - [ ] View(InputView, OutputView)와 비즈니스 로직(CarRace)을 연결하는 중간 계층 역할을 수행한다.
+
+## ✨ 개발할 순서 목록 (TDD)
+
+### Car
+
+- [ ] 이름이 5자 초과면 IllegalArgumentException을 반환한다. 
+- [ ] canMove(int n) 에서 n이 4 이상이면 true, 미만이면 false을 반환한다. 
+- [ ] move() 호출 시 이동 조건 충족이면 score+1
+
+### CarRace
+
+- [ ] numberOfGames <= 0 면 IllegalArgumentException을 반환한다. 
+- [ ] race()가 시도 횟수만큼 각 Car를 움직인다.
+- [ ] findWinners()가 최대로 움직인 Car(동점자 포함)를 반환한다. 

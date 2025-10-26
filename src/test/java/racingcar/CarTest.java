@@ -25,5 +25,11 @@ public class CarTest {
         assertThat(Car.canMove(randomNumber)).isEqualTo(trueOrFalse);
     }
 
-
+    @Test
+    @DisplayName("canMove_가_참이면_score는_1만큼_증가한다")
+    void move하면_score는_1만큼_증가한다( ) {
+        Car car=Car.named("abcde");
+        car.move(9);
+        assertThat(car.getScore()).isEqualTo(1);
+    }
 }

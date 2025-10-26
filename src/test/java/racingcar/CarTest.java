@@ -10,7 +10,7 @@ public class CarTest {
     @Test
     @DisplayName("자동차_이름_5자_초과면_IllegalArgumentException을_반환한다")
     void 자동차_이름_5자_초과면_IllegalArgumentException을_반환한다() {
-        assertThatThrownBy(() -> new Car("abcdef"))
+        assertThatThrownBy(() -> Car.named("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
 
     }

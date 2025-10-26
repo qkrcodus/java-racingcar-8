@@ -14,5 +14,11 @@ public class Car {
         return new Car(name);
     }
 
+    public static boolean canMove(int randomNumber) {
+        if (randomNumber >= 4) {
+            return true;
+        }
+        return false;
+    }
 
 }

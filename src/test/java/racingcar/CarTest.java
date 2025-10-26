@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.model.Car;
 
@@ -17,12 +18,11 @@ public class CarTest {
 
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("4_이상일_경우_전진한다")
     @CsvSource({"0,false", "1,false", "4,true", "5,true", "9,true"})
     void randomNumber가_4_이상일_경우_전진한다(int randomNumber, boolean trueOrFalse) {
-        Car.named("abcde");
-        assertThat(Car.canMove(randomNumber).isEqualTo(trueOrFalse));
+        assertThat(Car.canMove(randomNumber)).isEqualTo(trueOrFalse);
     }
 
 

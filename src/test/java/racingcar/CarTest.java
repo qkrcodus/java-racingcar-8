@@ -19,7 +19,7 @@ public class CarTest {
 
     @Test
     @DisplayName("4_이상일_경우_전진한다")
-    @CsvSource({"0,true", "1,true", "4,true", "5,false", "9,false"})
+    @CsvSource({"0,false", "1,false", "4,true", "5,true", "9,true"})
     void randomNumber가_4_이상일_경우_전진한다(int randomNumber, boolean trueOrFalse) {
         Car.named("abcde");
         assertThat(Car.canMove(randomNumber).isEqualTo(trueOrFalse));

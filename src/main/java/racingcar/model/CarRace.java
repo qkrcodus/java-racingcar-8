@@ -30,4 +30,11 @@ public class CarRace {
                 .toList();
     }
 
+    public void race() {
+        for (int gameCount = 0; gameCount < numberOfGames; gameCount++) {
+            for (Car car : cars) {
+                car.move();
+            }
+        }
+    }
 }

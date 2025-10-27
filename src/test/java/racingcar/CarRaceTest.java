@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -16,7 +17,7 @@ public class CarRaceTest {
         final Car car2 = Car.named("car2");
         car1.move(9);
         car2.move(3);
-        CarRace race = new CarRace(List.of(car1, car2),1);
+        CarRace race = new CarRace(List.of(car1, car2), 1);
         assertThat(race.findWinners()).containsExactly(car1);
     }
 
@@ -27,8 +28,16 @@ public class CarRaceTest {
         final Car car2 = Car.named("car2");
         car1.move(9);
         car2.move(9);
-        CarRace race = new CarRace(List.of(car1, car2),1);
+        CarRace race = new CarRace(List.of(car1, car2), 1);
         assertThat(race.findWinners()).containsExactlyInAnyOrder(car1, car2);
 
+    }
+
+    @Test
+    @DisplayName("numberOfGames가_0이하면_IllegalArgumentException을_반환한다")
+    void numberOfGames가_0이하면_IllegalArgumentException을_반환한다() {
+        final Car car1 = Car.named("car1");
+        assertThatThrownBy(() -> new CarRace(List.of(car1), 0))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }

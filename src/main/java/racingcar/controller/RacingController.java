@@ -18,10 +18,8 @@ public class RacingController {
 
         CarRace race = CarRace.of(cars, numberOfGames);
 
-        for (int i = 0; i < numberOfGames; i++) {
-            for (Car car : cars) {
-                car.move();
-            }
+        for (int i = 0; i < race.getNumberOfGames(); i++) {
+            race.raceOnce();
             OutputView.printByPhase(cars);
         }
 

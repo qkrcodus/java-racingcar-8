@@ -1,13 +1,10 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import racingcar.model.Car;
 
 public class CarTest {
     @Test
@@ -18,18 +15,21 @@ public class CarTest {
 
     }
 
-    @ParameterizedTest
-    @DisplayName("4_이상일_경우_전진한다")
-    @CsvSource({"0,false", "1,false", "4,true", "5,true", "9,true"})
-    void randomNumber가_4_이상일_경우_전진한다(int randomNumber, boolean trueOrFalse) {
-        assertThat(Car.canMove(randomNumber)).isEqualTo(trueOrFalse);
+    @Test
+    @DisplayName("move_가_참이면_score는_1만큼_증가한다")
+    void move하면_score는_1만큼_증가한다() {
+        NumberPicker fixed9 = () -> 9;
+        Car car = Car.tested("abcde", fixed9);
+        car.move();
+        assertThat(car.getScore()).isEqualTo(1);
     }
 
     @Test
-    @DisplayName("move_가_참이면_score는_1만큼_증가한다")
-    void move하면_score는_1만큼_증가한다( ) {
-        Car car=Car.named("abcde");
-        car.move(9);
-        assertThat(car.getScore()).isEqualTo(1);
+    @DisplayName("move가_거짓이면_score_증가_없음")
+    void move하면_score_증가없음() {
+        NumberPicker fixed3 = () -> 3;
+        Car car = Car.tested("abc", fixed3);
+        car.move();
+        assertThat(car.getScore()).isZero();
     }
 }

@@ -26,7 +26,7 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("canMove_가_참이면_score는_1만큼_증가한다")
+    @DisplayName("move_가_참이면_score는_1만큼_증가한다")
     void move하면_score는_1만큼_증가한다( ) {
         Car car=Car.named("abcde");
         car.move(9);

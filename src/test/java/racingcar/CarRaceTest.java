@@ -1,0 +1,33 @@
+package racingcar;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+
+public class CarRaceTest {
+    @Test
+    @DisplayName("findWinners는_단일_우승자를_반환한다")
+    void findWinners는_단일_우승자를_반환한다() {
+        final Car car1 = Car.named("car1");
+        final Car car2 = Car.named("car2");
+        car1.move(9);
+        car2.move(3);
+        CarRace race = new CarRace(List.of(car1, car2));
+        assertThat(race.findWinners()).containsExcatly(car1);
+    }
+
+    @Test
+    @DisplayName("동점인경우_findWinners는_여러_우승자를_반환한다")
+    void 동점인경우_findWinners는_여러_우승자를_반환한다() {
+        final Car car1 = Car.named("car1");
+        final Car car2 = Car.named("car2");
+        car1.move(9);
+        car2.move(9);
+        CarRace race = new CarRace(List.of(car1, car2));
+        assertThat(race.findWinners()).containsExactlyInAnyOrder(car1, car2);
+
+    }
+}

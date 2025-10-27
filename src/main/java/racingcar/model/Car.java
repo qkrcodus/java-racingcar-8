@@ -39,4 +39,8 @@ public final class Car {
         return score;
     }
 
+    public String getName() {
+        return name;
+    }
+
 }

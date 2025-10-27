@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class InputView {
+    private static final String NAME_DELIMETER = ",";
+
     private InputView() {
     }
 
     public static List<String> readRacingCarNames() {
         String inputCarNames = Console.readLine();
-        String[] cars = inputCarNames.split(",");
+        String[] cars = inputCarNames.split(NAME_DELIMETER);
         List<String> carNames = new ArrayList<>();
         for (String car : cars) {
             carNames.add(car);

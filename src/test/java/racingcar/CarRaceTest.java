@@ -17,7 +17,7 @@ public class CarRaceTest {
         final Car car2 = Car.named("car2");
         car1.move(9);
         car2.move(3);
-        CarRace race = new CarRace(List.of(car1, car2), 1);
+        CarRace race = CarRace.of(List.of(car1, car2), 1);
         assertThat(race.findWinners()).containsExactly(car1);
     }
 
@@ -28,7 +28,7 @@ public class CarRaceTest {
         final Car car2 = Car.named("car2");
         car1.move(9);
         car2.move(9);
-        CarRace race = new CarRace(List.of(car1, car2), 1);
+        CarRace race = CarRace.of(List.of(car1, car2), 1);
         assertThat(race.findWinners()).containsExactlyInAnyOrder(car1, car2);
 
     }
@@ -37,7 +37,7 @@ public class CarRaceTest {
     @DisplayName("numberOfGames가_0이하면_IllegalArgumentException을_반환한다")
     void numberOfGames가_0이하면_IllegalArgumentException을_반환한다() {
         final Car car1 = Car.named("car1");
-        assertThatThrownBy(() -> new CarRace(List.of(car1), 0))
+        assertThatThrownBy(() -> CarRace.of(List.of(car1), 0))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

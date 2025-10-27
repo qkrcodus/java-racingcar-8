@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.CarRace;
 
 public class CarRaceTest {
     @Test
@@ -15,8 +16,8 @@ public class CarRaceTest {
         final Car car2 = Car.named("car2");
         car1.move(9);
         car2.move(3);
-        CarRace race = new CarRace(List.of(car1, car2));
-        assertThat(race.findWinners()).containsExcatly(car1);
+        CarRace race = new CarRace(List.of(car1, car2),1);
+        assertThat(race.findWinners()).containsExactly(car1);
     }
 
     @Test
@@ -26,7 +27,7 @@ public class CarRaceTest {
         final Car car2 = Car.named("car2");
         car1.move(9);
         car2.move(9);
-        CarRace race = new CarRace(List.of(car1, car2));
+        CarRace race = new CarRace(List.of(car1, car2),1);
         assertThat(race.findWinners()).containsExactlyInAnyOrder(car1, car2);
 
     }

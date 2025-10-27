@@ -40,6 +40,5 @@
 
 ### CarRace
 
-- [ ] numberOfGames <= 0 면 IllegalArgumentException을 반환한다. 
-- [ ] race()가 시도 횟수만큼 각 Car를 움직인다.
+- [ ] numberOfGames <= 0 면 IllegalArgumentException을 반환한다.
 - [ ] findWinners()가 최대로 움직인 Car(동점자 포함)를 반환한다. 

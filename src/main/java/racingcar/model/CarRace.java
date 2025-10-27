@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 
 public class CarRace {
+    private static final int THRESHOLD_NUMBER_OF_GAMES = 0;
     private int numberOfGames;
     private List<Car> cars;
 
@@ -12,7 +13,7 @@ public class CarRace {
     }
 
     public static CarRace of(List<Car> cars, int numberOfGames) {
-        if (numberOfGames <= 0) {
+        if (numberOfGames <= THRESHOLD_NUMBER_OF_GAMES) {
             throw new IllegalArgumentException("경주 횟수는 0보다 커야 합니다.");
         }
         return new CarRace(cars, numberOfGames);
@@ -28,6 +29,5 @@ public class CarRace {
                 .filter(car -> car.getScore() == maxScore)
                 .toList();
     }
-
 
 }

@@ -14,17 +14,19 @@ public final class Car {
     }
 
     public static Car named(String name) {
-        if (name.length() > THRESHOLD_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
-        }
+        validateName(name);
         return new Car(name, new RandomNumberPicker());
     }
 
     static Car tested(String name, NumberPicker picker) {
+        validateName(name);
+        return new Car(name, picker);
+    }
+
+    private static void validateName(String name) {
         if (name.length() > THRESHOLD_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
         }
-        return new Car(name, picker);
     }
 
     public void move() {

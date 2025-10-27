@@ -1,5 +1,5 @@
 package racingcar.model;
 
-public abstract interface NumberPicker {
+public interface NumberPicker {
     int pick();
 }
